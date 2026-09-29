@@ -1,0 +1,32 @@
+{% extends "base.html"%}
+{% block title %}Categories{% endblock %}
+
+
+  <main>
+    <!-- ===== CATEGORY HEADER ===== -->
+    <section class="category-header container">
+      <h1 class="category-title">📂 Browse Categories</h1>
+      <p class="category-subtitle">Find exactly what you need by exploring our categories</p>
+    </section>
+
+    <!-- ===== CATEGORY GRID ===== -->
+    <section class="category-grid-section container">
+      <div class="category-grid" id="categoryGrid">
+        <!-- توسط JS تولید می‌شود -->
+      </div>
+    </section>
+
+    <!-- ===== PRODUCTS BY CATEGORY ===== -->
+    <section class="category-products container" id="categoryProducts">
+      <div class="category-products__header">
+        <h2 class="section-title" id="selectedCategoryTitle">All Products</h2>
+        <div class="category-products__filters">
+          <input type="text" class="search-input" id="categorySearch" placeholder="Search in category...">
+        </div>
+      </div>
+      <div class="products__grid" id="categoryProductGrid">
+        <!-- توسط JS تولید می‌شود -->
+      </div>
+      <p class="no-result" id="noCategoryResult" style="display:none;">No products found in this category.</p>
+    </section>
+  </main>
