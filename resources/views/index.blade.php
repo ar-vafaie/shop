@@ -42,12 +42,9 @@
         <h2 class="section-title">🔥 Featured Products</h2>
         <!-- دسته‌بندی -->
         <div class="category-filters" id="categoryFilters">
-          <button class="cat-btn active" data-cat="all">All</button>
-          <button class="cat-btn" data-cat="audio">🎵 Audio</button>
-          <button class="cat-btn" data-cat="wearable">⌚ Wearable</button>
-          <button class="cat-btn" data-cat="camera">📷 Camera</button>
-          <button class="cat-btn" data-cat="laptop">💻 Laptop</button>
-          <button class="cat-btn" data-cat="phone">📱 Phone</button>
+          <button class="cat-btn active" data-cat="bestseller">Best Seller</button>
+          <button class="cat-btn" data-cat="newest">Newest</button>
+          
         </div>
       </div>
 

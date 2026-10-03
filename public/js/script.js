@@ -9,6 +9,29 @@ async function getData(path) {
     return data;
 }
 
+const getProductImage = (product) => {
+  if (!product || !product.images || product.images.length === 0 || !product.images[0].name ){
+    return 'pictur not set...!';
+  }else{
+    return product.images[0].name;
+  }
+};
+// navigation 
+
+switch(window.location.href){
+  case BASE_URL + '/':
+    document.querySelector('#nav-link__home').classList.add('active');
+    break;
+  case BASE_URL + '/categories':
+    document.querySelector('#nav-link__categories').classList.add('active');
+    break;
+  case BASE_URL + '/cart':
+    document.querySelector('#nav-link__cart').classList.add('active');
+    break;
+
+}
+
+
 
 // ===== HAMBURGER MENU =====
 const hamburger = document.getElementById('hamburger');
@@ -82,19 +105,7 @@ if (slides.length && dotsContainer) {
   autoSlide();
 }
 
-// ===== PRODUCT DATA (برای صفحه اصلی) =====
-const allProducts = [
-  { id: 1, name: 'Wireless Headphones', price: '$49.99', emoji: '🎧', category: 'audio' },
-  { id: 2, name: 'Smart Watch', price: '$89.00', emoji: '⌚', category: 'wearable' },
-  { id: 3, name: '4K Action Camera', price: '$199.99', emoji: '📷', category: 'camera' },
-  { id: 4, name: 'Gaming Laptop', price: '$999.00', emoji: '💻', category: 'laptop' },
-  { id: 5, name: '5G Smartphone', price: '$699.00', emoji: '📱', category: 'phone' },
-  { id: 6, name: 'Wireless Earbuds', price: '$29.99', emoji: '🎵', category: 'audio' },
-  { id: 7, name: 'Fitness Band', price: '$39.00', emoji: '🏃', category: 'wearable' },
-  { id: 8, name: 'DSLR Camera', price: '$549.00', emoji: '📸', category: 'camera' },
-  { id: 9, name: 'Ultrabook', price: '$1299.00', emoji: '💻', category: 'laptop' },
-  { id: 10, name: 'Tablet', price: '$329.00', emoji: '📱', category: 'phone' }
-];
+
 
 // ===== RENDER PRODUCTS (صفحه اصلی) =====
 const grid = document.getElementById('productGrid');
@@ -102,10 +113,22 @@ const noResult = document.getElementById('noResult');
 let currentCategory = 'best seller';
 let searchQuery = '';
 
+
 async function renderProducts() {
   if (!grid) return;
+  
+  const categoryFilterEl = document.querySelector('#categoryFilters');
+  currentCategory = categoryFilterEl.querySelector('button.active').getAttribute('data-cat');
 
-  const filtered = await getData('products/bestseller');
+  let filtered;
+  switch(currentCategory){
+    case 'bestseller':
+      filtered = await getData('products/bestseller');
+      break;
+    case 'newest':
+      filtered = await getData('products/newest');
+      break;
+  }
 
   grid.innerHTML = '';
   if (filtered.length === 0) {
@@ -120,7 +143,7 @@ async function renderProducts() {
     card.dataset.category = product.category;
 
     card.innerHTML = `
-      <img class="product-card__emoji" src="${product.images[0].name}" alt="${product.name}" width="100%" height="200px" style="border-radius:5px">
+      <img class="product-card__emoji" src="${getProductImage(product)}" alt="${product.name}" width="100%" height="200px" style="border-radius:5px">
       <h3 class="product-card__name">${product.name}</h3>
       <div class="product-card__price">${product.price}</div>
       <button class="product-card__btn" data-id="${product.id}">View Details</button>
@@ -129,10 +152,12 @@ async function renderProducts() {
     const btn = card.querySelector('.product-card__btn');
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
+      const productId = e.target.getAttribute('data-id');
+      window.location.href = BASE_URL + `/product/${productId}`;
     });
 
     grid.appendChild(card);
-  });
+  });  
 }
 
 // ===== CATEGORY FILTER =====

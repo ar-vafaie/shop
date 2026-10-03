@@ -18,9 +18,9 @@
 
       <nav class="nav" id="nav">
         <ul class="nav__list">
-          <li class="nav__item"><a href={{ route('home') }} class="nav__link">Home</a></li>
-          <li class="nav__item"><a href={{ route('categories') }} class="nav__link">Categories</a></li>
-          <li class="nav__item"><a href={{ route('cart') }} class="nav__link active">Cart</a></li>
+          <li class="nav__item"><a href={{ route('home') }} class="nav__link" id='nav-link__home'>Home</a></li>
+          <li class="nav__item"><a href={{ route('categories') }} class="nav__link" id='nav-link__categories'>Categories</a></li>
+          <li class="nav__item"><a href={{ route('cart') }} class="nav__link" id='nav-link__cart'>Cart</a></li>
         </ul>
       </nav>
 
