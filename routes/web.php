@@ -36,14 +36,13 @@ Route::prefix('/admin')->group( function(){
 
 
 
-
-
 // APIs
 
 Route::get('/api/categories', [ProductController::class, 'categoriesApi']);
 Route::get('/api/categories/{categoryId}', [ProductController::class, 'categoryProducts']);
 
 Route::get('/api/products/bestseller', [ProductController::class, 'bestseller']);
+Route::get('/api/products/newest', [ProductController::class, 'newest']);
 
 
 
