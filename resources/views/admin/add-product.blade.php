@@ -1,47 +1,10 @@
 @extends('admin.layouts.master')
 
+@section('title', 'Add Product')
+
 
 @section('body')
     
-{{-- <body>
-<div class="admin-shell">
-    <div class="sidebar-backdrop" data-sidebar-close></div>
-
-    <aside class="admin-sidebar" id="adminSidebar" aria-label="Main navigation">
-        
-        <div class="sidebar-header">
-            <a class="brand-mark" href="index.html" aria-label="adminHMD dashboard">
-                <span class="brand-icon"><i class="bi bi-grid-1x2-fill" aria-hidden="true"></i></span>
-                <span class="brand-copy">
-                    <span class="brand-title">adminHMD</span>
-                    <span class="brand-subtitle">Admin Template</span>
-                </span>
-            </a>
-        </div>
-
-        <nav class="sidebar-nav">
-            <a class="nav-link" href="index.html">
-                <span class="nav-icon"><i class="bi bi-speedometer2"></i></span>
-                <span class="nav-text">Dashboard</span>
-            </a>
-            <a class="nav-link active" href="add-user.html" aria-current="page">
-                <span class="nav-icon"><i class="bi bi-person-plus"></i></span>
-                <span class="nav-text">Add Product</span>
-            </a>
-        </nav>
-
-        <div class="sidebar-user">
-            <img class="avatar-img avatar-md sidebar-user-avatar" src="../assets/images/avatar/avatar.jpg" alt="Admin Hasan">
-            <strong>Admin Hasan</strong>
-            <small>Active Workspace</small>
-        </div>
-
-        <div class="sidebar-footer">
-            <span class="status-dot"></span>
-            <span class="sidebar-footer-text">System running smoothly</span>
-        </div>
-    </aside> --}}
-
     <div class="admin-main">
         <nav class="navbar admin-navbar navbar-expand bg-white">
             <div class="container-fluid px-3 px-lg-4">

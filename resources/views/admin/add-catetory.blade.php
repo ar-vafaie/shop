@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
 
+@section('title', 'Add Category')
+
 
 @section('body')
     <div class="admin-main">

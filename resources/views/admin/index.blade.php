@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
 
+@section('title', 'Dashbord')
+    
 
 @section('body')
     
