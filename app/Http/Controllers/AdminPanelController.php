@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminPanelController extends Controller
@@ -71,6 +72,10 @@ class AdminPanelController extends Controller
     }
 
     public function manageAdmins(){
-        return view('admin.');
+        return view('admin.manage-admins');
+    }
+    public function getAdmins(){
+        $data = User::where('is_admin', true)->select('name', 'family', 'username', 'email')->paginate(10);
+        return json_encode($data);
     }
 }

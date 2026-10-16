@@ -29,6 +29,7 @@ Route::prefix('/admin')->group( function(){
             Route::post('/categories', 'storeCategory')->name('admin.category.store');
 
             Route::get('/manage-admins', 'manageAdmins')->name('manage.admins');
+            Route::get('/api/get-admins', 'getAdmins');
         });
     });
 });
