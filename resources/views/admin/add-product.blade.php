@@ -5,25 +5,6 @@
 
 @section('body')
     
-    <div class="admin-main">
-        <nav class="navbar admin-navbar navbar-expand bg-white">
-            <div class="container-fluid px-3 px-lg-4">
-                <button class="sidebar-toggle" type="button" data-sidebar-toggle aria-controls="adminSidebar" aria-expanded="true" aria-label="Toggle sidebar">
-                    <span></span><span></span><span></span>
-                </button>
-
-                <form class="d-none d-md-flex ms-3 flex-grow-1" role="search">
-                    <input class="form-control search-input" type="search" placeholder="Search users, orders, reports" aria-label="Search">
-                </form>
-
-                <div class="navbar-actions ms-auto">
-                    <button class="icon-button theme-toggle" type="button" data-theme-toggle>
-                        <i class="bi bi-moon-stars" data-theme-icon aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-        </nav>
-
         @if(session('success'))
             <div class="alert alert-success">{{ session("success") }}</div>
         @enderror
