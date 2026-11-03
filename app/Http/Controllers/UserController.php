@@ -43,6 +43,7 @@ class UserController extends Controller
             if($user->is_admin){
                 Auth::login($user);
                 Auth::guard('admin')->login($user);
+                $user->createToken('token-name')->plainTextToken;
                 $request->session()->regenerate();
                 session([
                     'user.name' => $user->name,

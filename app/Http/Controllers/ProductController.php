@@ -11,17 +11,6 @@ class ProductController extends Controller
     public function categories(){
         return view('categories');
     }
-    public function categoriesApi(){
-        return json_encode(Category::select('id', 'name', 'img_path')->get());
-    }
-    public function categoryProducts(string $categoryId){
-    $products = Product::whereHas('categories', function ($query) use ($categoryId) {
-        $query->where('category_id', $categoryId);
-    })->with(['images' => function ($query) {$query->limit(1);}])
-    ->select(['id','name', 'price'])
-    ->get();
-        return json_encode($products);
-    }
 
     public function bestseller(){
         $products = Product::with(['images' => fn ($query) => $query->limit(1)])->select(['id', 'name', 'price'])->orderByDesc('buy_count')->limit(10)->get();
