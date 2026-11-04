@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\AdminPanelController;
+use App\Http\Controllers\Api\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Api\ProductController as ProductControllerApi;
+use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,18 +21,33 @@ Route::get('/categories', [ProductController::class, 'categories'])->name('categ
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::get('/product/{productId}', [ProductController::class, 'product'])->name('product');
 
+
 Route::prefix('/admin')->group( function(){
-    Route::controller(AdminPanelController::class)->group( function(){
-        Route::middleware(['auth:admin'])->group( function(){
+    Route::middleware(['auth:admin'])->group( function(){
+        /*********************** page's scope *****************************/
+        Route::controller(AdminPanelController::class)->group( function(){
 
             Route::get('', 'index')->name('admin');
             Route::get('/add-product', 'addProduct')->name('add.product');
-            Route::post('/products', 'storeProduct')->name('admin.products.store');
             Route::get('/add-category', 'addCategory')->name('add.category');
-            Route::post('/categories', 'storeCategory')->name('admin.category.store');
-
+            
             Route::get('/manage-admins', 'manageAdmins')->name('manage.admins');
-            Route::get('/api/get-admins', 'getAdmins');
+            });
+
+        /*============================ api scope =======================*/ 
+        Route::prefix('/api')->group(function(){
+            Route::controller(ProductControllerApi::class)->group(function(){
+                Route::post('/products', 'storeProduct')->name('admin.products.store');     
+
+            });
+            Route::controller(CategoryController::class)->group(function(){
+                Route::post('/categories')->name('admin.category.store');
+
+            });
+            Route::controller(AdminController::class)->group(function(){
+                Route::get('/admin', 'getAdmins');
+
+            });
         });
     });
 });
