@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\Api\ProductController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CategoryController;
-
+use App\Http\Controllers\Api\Product\BestSellerController;
+use App\Http\Controllers\Api\Product\NewestController;
 
 Route::controller(CategoryController::class)->group(function(){
 
@@ -13,3 +14,5 @@ Route::controller(CategoryController::class)->group(function(){
 
 });
 
+Route::get('/api/products/bestseller', BestSellerController::class);
+Route::get('/api/products/newest', NewestController::class);
