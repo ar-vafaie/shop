@@ -30,7 +30,7 @@
                 <section class="row g-3">
                     <div class="col-12 col-xl-8">
                         {{-- ✅ فرم اصلی: action و method اضافه شد --}}
-                        <form class="panel needs-validation" action="{{ route('admin.category.store') }}" method="POST"
+                        <form class="panel needs-validation" action="{{ route('store.category') }}" method="POST"
                             enctype="multipart/form-data" novalidate>
                             @csrf
 

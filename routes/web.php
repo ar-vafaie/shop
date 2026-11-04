@@ -22,8 +22,8 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::get('/product/{productId}', [ProductController::class, 'product'])->name('product');
 
 
-Route::prefix('/admin')->group( function(){
-    Route::middleware(['auth:admin'])->group( function(){
+Route::middleware(['auth:admin'])->group( function(){
+    Route::prefix('/admin')->group( function(){
         /*********************** page's scope *****************************/
         Route::controller(AdminPanelController::class)->group( function(){
 
@@ -35,20 +35,20 @@ Route::prefix('/admin')->group( function(){
             });
 
         /*============================ api scope =======================*/ 
-        Route::prefix('/api')->group(function(){
-            Route::controller(ProductControllerApi::class)->group(function(){
-                Route::post('/products', 'storeProduct')->name('admin.products.store');     
+    Route::prefix('/api')->group(function(){
+        Route::controller(ProductControllerApi::class)->group(function(){
+            Route::post('/products', 'store')->name('store.product');     
 
-            });
-            Route::controller(CategoryController::class)->group(function(){
-                Route::post('/categories')->name('admin.category.store');
-
-            });
-            Route::controller(AdminController::class)->group(function(){
-                Route::get('/admin', 'getAdmins');
-
-            });
         });
+        Route::controller(CategoryController::class)->group(function(){
+            Route::post('/categories', 'store')->name('store.category');
+
+        });
+        Route::controller(AdminController::class)->group(function(){
+            Route::get('/admin', 'index');
+
+        });
+    });
     });
 });
 

@@ -294,7 +294,7 @@ const BASE_URL = 'http://localhost:8000/'
     const bsModal = new bootstrap.Modal(modalEl);
 
     // آدرس API از ProductController::categoriesApi
-    const API_URL = BASE_URL +'api/categories';
+    const API_URL = BASE_URL +'api/category';
 
     async function loadCategories() {
         try {

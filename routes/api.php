@@ -13,5 +13,5 @@ Route::controller(CategoryController::class)->group(function(){
 
 });
 
-Route::get('/api/products/bestseller', BestSellerController::class);
-Route::get('/api/products/newest', NewestController::class);
+Route::get('products/bestseller', BestSellerController::class);
+Route::get('products/newest', NewestController::class);

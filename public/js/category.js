@@ -13,7 +13,7 @@
 
     async function renderCategories() {
         try {
-            const data = await getData("categories");
+            const data = await getData("category");
 
             categoryGrid.innerHTML = "";
             data.forEach(cat => {
@@ -52,7 +52,7 @@
             noCategoryResult.style.display = "none";
             categoryProductGrid.innerHTML = "";
 
-            const products = await getData(`categories/${categoryId}`);
+            const products = await getData(`category/${categoryId}`);
 
             if (!products.length) {
                 noCategoryResult.style.display = "block";
