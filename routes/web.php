@@ -46,6 +46,8 @@ Route::middleware(['auth:admin'])->group( function(){
         });
         Route::controller(AdminController::class)->group(function(){
             Route::get('/admins', 'index');
+            Route::get('/users/search', 'search')->middleware('throttle:30,1');
+            Route::patch('/users/{user}', 'update');
 
         });
     });

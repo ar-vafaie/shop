@@ -73,26 +73,26 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <input class="form-control form-control-sm table-search" type="search" placeholder="Search users"
-                            data-table-search="usersTable" aria-label="Search users">
-                        <table class="table align-middle mb-0" id="usersTable" data-searchable-table>
-                        <thead>
-                            <tr>
-                                <th scope="col">User</th>
-                                <th scope="col">Role</th>
-                                <th scope="col">Team</th>
-                            </tr>
-                        </thead>
-                        <tbody id="c">
-                            {{--  --}}
+                        <input id="adminSearchInput" class="form-control form-control-sm mb-3" type="search"
+                            placeholder="Search by name, username or email..." autocomplete="off" aria-label="Search users">
 
-                            {{--  --}}
-                        </tbody>
-                    </table>
+                        <p id="candidatesStatus" class="text-muted small mb-2 d-none"></p>
+
+                        <div class="table-responsive">
+                            <table class="table align-middle mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Username</th>
+                                        <th class="text-end"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="candidatesBody"></tbody>
+                            </table>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Add</button>
                     </div>
                 </div>
             </div>

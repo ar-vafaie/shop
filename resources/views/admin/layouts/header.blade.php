@@ -7,6 +7,8 @@
     <meta name="description" content="adminHMD professional admin dashboard template">
     <title>@yield('title')</title>
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <link rel="stylesheet" href={{ asset('css/bootstrap.min.css') }}>
     <link rel="stylesheet" href={{ asset('bootstrap-icons/bootstrap-icons.css') }}>
     <link rel="stylesheet" href={{ asset('css/admin.css') }}>
