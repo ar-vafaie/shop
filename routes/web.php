@@ -45,7 +45,7 @@ Route::middleware(['auth:admin'])->group( function(){
 
         });
         Route::controller(AdminController::class)->group(function(){
-            Route::get('/admin', 'index');
+            Route::get('/admins', 'index');
 
         });
     });

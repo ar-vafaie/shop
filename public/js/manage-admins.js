@@ -128,7 +128,7 @@ async function handlePageClick(e) {
 // ===== بارگذاری اولیه =====
 async function initUsersTable() {
     try {
-        const data = await getData('get-admins');
+        const data = await getData('admins');
         renderRows(data.data);
         renderPaginationLinks(data.links);
     } catch (err) {
